@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Spazz24 &co</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+<h1>Spazz24 &co</h1>
+
+<div>
+
+<a href="/add">Add Product</a>
+
+<a href="/sales">Sales</a>
+
+</div>
+
+</div>
+
+<div class="container">
+
+<h2>Inventory</h2>
+
+<div class="product-grid">
+
+{% for product in products %}
+
+<div class="card">
+
+<img src="{{ url_for('static', filename='uploads/' + product.image) }}">
+
+<h3>{{ product.name }}</h3>
+
+<p>{{ product.category }}</p>
+
+<p>Stock: {{ product.quantity }}</p>
+
+<p>R{{ product.price }}</p>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>
